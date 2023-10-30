@@ -1,0 +1,7 @@
+@function pxToRem($px, $base: 16px) {
+	@return #{$px / $base}rem;
+}
+
+@mixin font-size($size, $base: 16px) {
+	font-size: pxToRem($size, $base);
+}
