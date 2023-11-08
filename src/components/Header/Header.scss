@@ -1,0 +1,151 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.header {
+	background-color: $white;
+	padding: size(10px) size(20px) size(10px) 5%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0 size(3px) size(5px) rgba(0, 0, 0, 0.2);
+	position: relative;
+	border-bottom: 1px solid $light-gray;
+
+	@include respond-to($media-lg) {
+		padding: size(10px) auto size(10px) auto;
+		justify-content: center;
+	}
+
+	&__logo {
+		height: size(80px);
+		width: size(180px);
+		display: block;
+
+		@include respond-to($media-lg) {
+			height: size(100px);
+			width: size(210px);
+		}
+
+		&-img {
+			max-width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__menu {
+		height: size(45px);
+		width: size(40px);
+		border: size(2px) solid $apricot-secondary-yellow;
+		border-radius: size(3px);
+		background-color: $white;
+
+		@include respond-to($media-lg) {
+			display: none;
+		}
+
+		&-icon {
+			fill: $apricot-secondary-yellow;
+			height: size(24px);
+			width: size(24px);
+		}
+	}
+}
+
+.navigation {
+	position: absolute;
+	top: 101%;
+	left: 0;
+	width: 100%;
+	padding: size(10px) 5%;
+	background-color: $white;
+	box-shadow: 0 size(3px) size(5px) rgba(0, 0, 0, 0.2);
+
+	@include respond-to($media-lg) {
+		position: initial;
+		box-shadow: none;
+		padding-left: size(80px);
+		display: block !important;
+		max-width: size(1400px);
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		gap: size(10px);
+
+		@include respond-to($media-lg) {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&-item {
+			border-bottom: 1px solid $light-gray;
+			width: 100%;
+			cursor: pointer;
+
+			@include respond-to($media-lg) {
+				width: auto;
+				padding: size(5px) size(15px);
+				border: none;
+				margin-right: auto;
+				position: relative;
+			}
+		}
+
+		.--animation::before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 3px;
+			background-color: $apricot-secondary-yellow;
+			transition: width 0.3s ease;
+		}
+
+		.--animation:hover::before {
+			width: 100%;
+			left: 0;
+			right: auto;
+		}
+
+		.--animation::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 0;
+			height: 3px;
+			background-color: $apricot-secondary-yellow;
+			transition: width 0.3s ease;
+		}
+
+		.--animation:hover::after {
+			width: 100%;
+			left: auto;
+			right: 0;
+		}
+
+		.--donate {
+			border: none;
+
+			@include respond-to($media-lg) {
+				background-color: $apricot-secondary-yellow;
+				border-radius: 6px;
+				padding: size(10px) size(25px);
+				box-shadow: 0 0 size(5px) rgba(0, 0, 0, 0.2);
+
+				&:active {
+					transform: scale(1.1);
+				}
+
+				.link {
+					color: $white;
+				}
+			}
+		}
+	}
+}
