@@ -1,5 +1,9 @@
 @import "./styles/general.scss";
 
+* {
+	box-sizing: border-box;
+}
+
 html,
 body {
 	width: 100%;
@@ -18,4 +22,20 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
+}
+
+*:focus {
+	padding: 5px;
+}
+
+.--not-show {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	display: block;
+	overflow: hidden;
+}
+
+.--hidden {
+	display: none;
 }

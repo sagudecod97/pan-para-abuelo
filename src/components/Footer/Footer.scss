@@ -1,0 +1,117 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.footer {
+	width: 100%;
+	min-height: 300px;
+	background-color: $dark-brown;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: size(80px) size(40px) size(80px) size(40px);
+
+	@include respond-to($media-sm) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: size(80px) 20% size(80px) 20%;
+	}
+
+	&__title {
+		color: $white;
+		font-family: $roboto-medium;
+		font-weight: 500;
+		padding-bottom: size(20px);
+
+		@include respond-to($media-sm) {
+			width: 33%;
+			order: 1;
+			text-align: center;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: size(10px);
+		padding-bottom: size(30px);
+
+		@include respond-to($media-sm) {
+			width: 33%;
+			order: 2;
+		}
+
+		&-item {
+			font-family: $roboto-regular;
+		}
+
+		&-icon {
+			height: size(18px);
+			padding-left: size(5px);
+			width: auto;
+			fill: white;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@include respond-to($media-sm) {
+			width: 100%;
+			order: 3;
+		}
+
+		&-link {
+			text-align: center;
+			padding-bottom: size(5px);
+		}
+
+		&-rights {
+			color: $white;
+			text-align: center;
+			padding-top: size(15px);
+		}
+	}
+
+	.--order-one {
+		@include respond-to($media-sm) {
+			order: 1;
+		}
+	}
+
+	.--order-two {
+		@include respond-to($media-sm) {
+			order: 2;
+		}
+	}
+
+	.--order-three {
+		@include respond-to($media-sm) {
+			order: 3;
+		}
+	}
+
+	.--order-four {
+		@include respond-to($media-sm) {
+			order: 4;
+		}
+	}
+
+	.--order-five {
+		@include respond-to($media-sm) {
+			order: 5;
+		}
+	}
+
+	.--order-six {
+		@include respond-to($media-sm) {
+			order: 6;
+		}
+	}
+}
