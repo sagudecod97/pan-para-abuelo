@@ -14,7 +14,9 @@ const Header = () => {
   };
 
   return (
-    <header className='header'>
+    <header 
+      className='header'
+    >
       <a 
         className='header__logo'
         href='/'
@@ -26,17 +28,29 @@ const Header = () => {
         />
       </a>
 
+      <button
+        onClick={openNavigationHandler}
+        className='header__menu'
+        aria-label='Menú de navegación'
+      >
+        <IconComponent 
+          className='header__menu-icon'
+          icon='menu'
+        />
+      </button>
+
       <nav
         className={`
         navigation
-        ${openNavitation ? '--hidden' : ''}
+        ${!openNavitation ? '--hidden' : ''}
         `}
+        hidden={!openNavitation ? true : false}
       >
         <ul
           className='navigation__list'
         >
           <li
-          className={`
+            className={`
             navigation__list-item
             --animation
             `}
@@ -116,21 +130,6 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-
-      <button
-        onClick={openNavigationHandler}
-        className='header__menu'
-      >
-        <span
-          className='--not-show'
-        >{
-          openNavitation ? "Abrir navegación" : "Cerrar navegación"
-        }</span>
-        <IconComponent 
-          className='header__menu-icon'
-          icon='menu'
-        />
-      </button>
     </header>
   );
 };

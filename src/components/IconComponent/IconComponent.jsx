@@ -9,6 +9,7 @@ const IconComponent = (props) => {
     size = "100%",
     icon,
     className,
+    ariaLabel,
   } = props;
 
   return (
@@ -18,6 +19,7 @@ const IconComponent = (props) => {
       color={color}
       size={size}
       icon={icon}
+      ariaLabel={ariaLabel}
       />
     );
 };

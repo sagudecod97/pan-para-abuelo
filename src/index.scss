@@ -24,6 +24,10 @@ code {
 		monospace;
 }
 
+*:focus {
+	padding: 5px;
+}
+
 .--not-show {
 	visibility: hidden;
 	width: 0;
