@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Header.scss';
 
 import IconComponent from '../IconComponent/IconComponent';
@@ -8,16 +8,59 @@ import PanParaAbueloLogo from '../../assets/images/pan-para-abuelo-logo.png';
 
 const Header = () => {
   const [openNavitation, setOpenNavigation] = useState(false);
-  
+  const [currentNavFocus, setCurrentNavFocus] = useState(0);
+  const [firstLinkNode, setFirstLinkNode] = useState(null);
+  const [lastLinkNode, setLastLinkNode] = useState(null);
+  const [navigationLinks, setNavigationLinks] = useState(null);
+
+  const firstNavItem = useRef(null);
+  const lastNavItem = useRef(null);
+  const navigationContainer = useRef(null);
+
   const openNavigationHandler = () => {
     setOpenNavigation(!openNavitation)
   };
 
+  const handlerButtonNavFocus = () => {
+    setOpenNavigation(true);
+  }
+
+  const handleKeyDownButtonNav = (event) => {
+    const { key } = event;
+
+    if (key === 'Enter' || key === 'ArrowDown') {
+      firstLinkNode.focus();
+      setCurrentNavFocus(0);
+    } else if (key === 'ArrowUp') {
+      lastLinkNode.focus();
+      setCurrentNavFocus(navigationLinks.length - 1);
+    }
+  }
+
+  const handleKeyDownNav = (event) => {
+    const { key } = event;
+    const navigationLinks = [...navigationContainer.current.querySelectorAll('a')];
+
+    if (key === 'ArrowDown' && currentNavFocus === navigationLinks.length - 1) {
+      firstLinkNode.focus()
+      setCurrentNavFocus(0);
+    } else if (key === 'ArrowDown') {
+      navigationLinks[currentNavFocus + 1].focus();
+      setCurrentNavFocus(currentNavFocus + 1)
+    }
+  }
+
+  useEffect(() => {
+    setFirstLinkNode(firstNavItem.current.children[0]);
+    setLastLinkNode(lastNavItem.current.children[0]);
+    setNavigationLinks([...navigationContainer.current.querySelectorAll('a')]);
+  }, [])
+
   return (
-    <header 
+    <header
       className='header'
     >
-      <a 
+      <a
         className='header__logo'
         href='/'
       >
@@ -30,10 +73,16 @@ const Header = () => {
 
       <button
         onClick={openNavigationHandler}
+        onFocus={handlerButtonNavFocus}
         className='header__menu'
         aria-label='Menú de navegación'
+        aria-haspopup='menu'
+        aria-expanded={openNavitation}
+        aria-controls='navigation-list'
+        onKeyDown={handleKeyDownButtonNav}
+        type='button'
       >
-        <IconComponent 
+        <IconComponent
           className='header__menu-icon'
           icon='menu'
         />
@@ -44,16 +93,22 @@ const Header = () => {
         navigation
         ${!openNavitation ? '--hidden' : ''}
         `}
-        hidden={!openNavitation ? true : false}
+        aria-hidden={!openNavitation}
+        onKeyDown={handleKeyDownNav}
       >
         <ul
           className='navigation__list'
+          role='menu'
+          id='navigation-list'
+          ref={navigationContainer}
         >
           <li
             className={`
             navigation__list-item
             --animation
             `}
+            role='menuitem'
+            ref={firstNavItem}
           >
             <Link
               href="/"
@@ -67,6 +122,7 @@ const Header = () => {
             navigation__list-item
             --animation
             `}
+            role='menuitem'
           >
             <Link
               href="/"
@@ -80,6 +136,7 @@ const Header = () => {
             navigation__list-item
             --animation
             `}
+            role='menuitem'
           >
             <Link
               href="/"
@@ -94,6 +151,7 @@ const Header = () => {
             navigation__list-item
             --animation
             `}
+            role='menuitem'
           >
             <Link
               href="/"
@@ -108,6 +166,7 @@ const Header = () => {
             navigation__list-item
             --animation
             `}
+            role='menuitem'
           >
             <Link
               href="/"
@@ -121,6 +180,8 @@ const Header = () => {
             navigation__list-item
             --donate
             `}
+            role='menuitem'
+            ref={lastNavItem}
           >
             <Link
               href="/"

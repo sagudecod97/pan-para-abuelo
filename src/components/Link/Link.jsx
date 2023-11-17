@@ -8,8 +8,8 @@ const Link = (props) => {
     className="",
     target="",
     ariaLabel,
-    ref,
   } = props;
+
   return (
   <>
     <a
@@ -18,7 +18,6 @@ const Link = (props) => {
       target={target}
       rel={target ? "noreferrer" : ""}
       aria-label={ariaLabel}
-      ref={ref}
     >
       {
         children

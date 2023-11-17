@@ -26,6 +26,9 @@ code {
 
 *:focus {
 	padding: 5px;
+	outline-style: solid;
+	outline-color: #f3af05;
+	outline-width: 2px;
 }
 
 .--not-show {
