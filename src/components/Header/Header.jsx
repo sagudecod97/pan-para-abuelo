@@ -13,6 +13,7 @@ const Header = () => {
   const [lastLinkNode, setLastLinkNode] = useState(null);
   const [navigationLinks, setNavigationLinks] = useState(null);
 
+  const buttonMenu = useRef(null);
   const firstNavItem = useRef(null);
   const lastNavItem = useRef(null);
   const navigationContainer = useRef(null);
@@ -26,9 +27,11 @@ const Header = () => {
   }
 
   const handleKeyDownButtonNav = (event) => {
-    const { key } = event;
+    const { key, code } = event;
 
-    if (key === 'Enter' || key === 'ArrowDown') {
+    if (key === 'Tab') {
+      setOpenNavigation(false);
+    } else if (key === 'Enter' || code === 'Space' || key === 'ArrowDown') {
       firstLinkNode.focus();
       setCurrentNavFocus(0);
     } else if (key === 'ArrowUp') {
@@ -38,8 +41,21 @@ const Header = () => {
   }
 
   const handleKeyDownNav = (event) => {
-    const { key } = event;
+    const { key, shiftKey, code } = event;
     const navigationLinks = [...navigationContainer.current.querySelectorAll('a')];
+
+    if (code === 'Space') {
+      return navigationLinks[currentNavFocus].click();
+    }
+
+    if (key === 'Tab' && shiftKey) {
+      setOpenNavigation(false);
+      return buttonMenu.current.click();
+    }
+
+    if (key === 'Tab') {
+      setOpenNavigation(false);
+    }
 
     if (key === 'ArrowDown' && currentNavFocus === navigationLinks.length - 1) {
       firstLinkNode.focus()
@@ -47,6 +63,12 @@ const Header = () => {
     } else if (key === 'ArrowDown') {
       navigationLinks[currentNavFocus + 1].focus();
       setCurrentNavFocus(currentNavFocus + 1)
+    } else if (key === 'ArrowUp' && currentNavFocus === 0) {
+      lastLinkNode.focus()
+      setCurrentNavFocus(navigationLinks.length - 1);
+    } else if (key === 'ArrowUp') {
+      navigationLinks[currentNavFocus - 1].focus();
+      setCurrentNavFocus(currentNavFocus - 1)
     }
   }
 
@@ -81,6 +103,7 @@ const Header = () => {
         aria-controls='navigation-list'
         onKeyDown={handleKeyDownButtonNav}
         type='button'
+        ref={buttonMenu}
       >
         <IconComponent
           className='header__menu-icon'
