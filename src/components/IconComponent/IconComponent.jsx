@@ -19,7 +19,7 @@ const IconComponent = (props) => {
       color={color}
       size={size}
       icon={icon}
-      ariaLabel={ariaLabel}
+      ariLabel={ariaLabel}
       />
     );
 };
