@@ -12,6 +12,12 @@ function App() {
     {
       type: 'img',
       image: OldWhiteMan,
+      phrase: 'Vínculos que construyen legados duraderos',
+      center: {
+        right: true,
+        center: false,
+        left: false,
+      },
       id: 'dadadasd',
     },
     {
@@ -22,6 +28,12 @@ function App() {
     {
       type: 'img',
       image: OldBlackMand,
+      phrase: 'Sabiduría que ilumina caminos',
+      center: {
+        right: false,
+        center: true,
+        left: false,
+      },
       id: 'fesafe121',
     },
     {
@@ -32,6 +44,12 @@ function App() {
     {
       type: 'img',
       image: OldWhiteMan,
+      phrase: 'Historias que inspiran respeto',
+      center: {
+        right: false,
+        center: false,
+        left: true,
+      },
       id: '323casadsa',
     },
     {
@@ -42,6 +60,12 @@ function App() {
     {
       type: 'img',
       image: OldBlackMand,
+      phrase: 'Historias que inspiran respeto',
+      center: {
+        right: true,
+        center: false,
+        left: false,
+      },
       id: 'gkkr32',
     },
     {

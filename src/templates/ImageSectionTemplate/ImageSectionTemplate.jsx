@@ -4,8 +4,11 @@ import './ImageSectionTemplate.scss';
 const ImageSection = (props) => {
   const {
     image,
+    phrase,
+    center,
     id,
   } = props;
+
   return (
     <section
       className='section-img'
@@ -16,6 +19,19 @@ const ImageSection = (props) => {
         src={image}
         alt="Images' section"
       />
+
+      <p
+       className={`
+       section-img__phrase
+       ${center.right ? '--right' : ''}
+       ${center.left ? '--left' : ''}
+       ${center.center ? '--center' : ''}
+       `}
+      >
+        {
+          phrase
+        }
+      </p>
     </section>
   );
 };
@@ -54,6 +70,8 @@ const ImageSectionTemplate = (props) => {
           return (
             <ImageSection
               image={arrayElem.image}
+              phrase={arrayElem.phrase}
+              center={arrayElem.center}
               id={arrayElem.id}
             />
           );
