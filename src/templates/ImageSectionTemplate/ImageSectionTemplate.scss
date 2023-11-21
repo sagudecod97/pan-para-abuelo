@@ -1,0 +1,25 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.section-img {
+	overflow: hidden;
+	width: 100%;
+
+	&__image {
+		max-width: 100%; /* Ensure the image doesn't exceed its container */
+		height: size(520px); /* Ensure the image doesn't exceed its container */
+		display: block;
+		margin: auto; /* Center horizontally */
+		object-fit: cover;
+		object-position: center;
+
+		@include respond-to($media-lg) {
+			width: 100%;
+			height: size(850px);
+		}
+	}
+}
+
+.section-description {
+	min-height: size(500px);
+}
