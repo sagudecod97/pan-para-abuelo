@@ -215,9 +215,9 @@ const Footer = () => {
           className="footer__info-link"
           href="https://www.google.com/maps/place/48.858844,2.294351"
           target="_blank"
-          ariaLabel="Visitar dirección en Google Maps"
+          ariaLabel="Medellín, Antioquia Dirección: Carrera 35A No. 39A-23"
         >
-            Medellín, Antioquia <br /> Carrera 35A No. 39A-23
+            Medellín, Antioquia <br /> Dirección: Carrera 35A No. 39A-23
         </Link>
 
         <p className='footer__info-rights'>

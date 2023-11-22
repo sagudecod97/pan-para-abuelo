@@ -6,6 +6,7 @@ const ImageSection = (props) => {
     image,
     phrase,
     center,
+    cta,
     id,
   } = props;
 
@@ -27,9 +28,23 @@ const ImageSection = (props) => {
        ${center.left ? '--left' : ''}
        ${center.center ? '--center' : ''}
        `}
+       id={cta ? 'img-phrase' : ''}
       >
         {
           phrase
+        }
+        {
+          cta && (
+            <a
+              aria-labelledby='img-phrase'
+              className='section-img__link'
+              href={cta.url}
+            >
+              {
+              cta.text
+              }
+            </a>
+          )
         }
       </p>
     </section>
@@ -72,6 +87,7 @@ const ImageSectionTemplate = (props) => {
               image={arrayElem.image}
               phrase={arrayElem.phrase}
               center={arrayElem.center}
+              cta={arrayElem.cta}
               id={arrayElem.id}
             />
           );

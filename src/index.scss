@@ -31,6 +31,11 @@ code {
 	outline-width: 2px;
 }
 
+button:focus {
+	outline: 3px solid #f3af05;
+	box-shadow: 2px 2px 0px #f3af05;
+}
+
 .--not-show {
 	visibility: hidden;
 	width: 0;
