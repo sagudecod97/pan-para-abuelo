@@ -12,6 +12,8 @@ const Header = () => {
   const [firstLinkNode, setFirstLinkNode] = useState(null);
   const [lastLinkNode, setLastLinkNode] = useState(null);
   const [navigationLinks, setNavigationLinks] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   const buttonMenu = useRef(null);
   const firstNavItem = useRef(null);
@@ -25,6 +27,8 @@ const Header = () => {
   const handlerButtonNavFocus = () => {
     setOpenNavigation(true);
   }
+
+  const shouldBeHidden = (!openNavitation && !isDesktop);
 
   const handleKeyDownButtonNav = (event) => {
     const { key, code } = event;
@@ -78,6 +82,25 @@ const Header = () => {
     setNavigationLinks([...navigationContainer.current.querySelectorAll('a')]);
   }, [])
 
+  useEffect(() => {
+    if (windowWidth >= 1199) {
+      setIsDesktop(true)
+    } else {
+      setIsDesktop(false);
+    }
+
+
+    const updateWindowWidth = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', updateWindowWidth);
+
+    return () => {
+      window.removeEventListener('resize', updateWindowWidth);
+    };
+  }, [windowWidth]);
+
   return (
     <header
       className='header'
@@ -114,9 +137,9 @@ const Header = () => {
       <nav
         className={`
         navigation
-        ${!openNavitation ? '--hidden' : ''}
+        ${shouldBeHidden ? '--hidden' : ''}
         `}
-        aria-hidden={!openNavitation}
+        aria-hidden={shouldBeHidden}
         onKeyDown={handleKeyDownNav}
       >
         <ul
@@ -134,6 +157,7 @@ const Header = () => {
             ref={firstNavItem}
           >
             <Link
+              className='navigation__link'
               href="/"
             >
               Inicio
@@ -148,6 +172,7 @@ const Header = () => {
             role='menuitem'
           >
             <Link
+              className='navigation__link'
               href="/"
             >
               Quienes Somos
@@ -162,6 +187,7 @@ const Header = () => {
             role='menuitem'
           >
             <Link
+              className='navigation__link'
               href="/"
             >
               Contactenos
@@ -177,6 +203,7 @@ const Header = () => {
             role='menuitem'
           >
             <Link
+              className='navigation__link'
               href="/"
             >
               Eventos
@@ -192,6 +219,7 @@ const Header = () => {
             role='menuitem'
           >
             <Link
+              className='navigation__link'
               href="/"
             >
               Ropero
@@ -207,6 +235,7 @@ const Header = () => {
             ref={lastNavItem}
           >
             <Link
+              className='navigation__link'
               href="/"
             >
               Donar
