@@ -12,6 +12,7 @@
 .main {
 	position: relative;
 	padding-top: size(101px);
+	padding-bottom: 900px;
 
 	@include respond-to($media-lg) {
 		padding-top: size(121px);
