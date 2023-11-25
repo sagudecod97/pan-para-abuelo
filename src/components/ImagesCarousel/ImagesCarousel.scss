@@ -1,2 +1,86 @@
 @import "../../styles/mixins.scss";
 @import "../../styles/variables.scss";
+
+.images-carousel {
+	position: relative;
+	padding: size(50px) 0;
+	background-color: rebeccapurple;
+
+	&__controls {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		padding: 0 3%;
+
+		&-control {
+			background-color: $apricot-secondary-yellow;
+			color: $dark-gray;
+			border: none;
+			height: size(60px);
+			width: size(60px);
+			border-radius: 50%;
+			cursor: pointer;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+
+			> span {
+				font-size: size(40px);
+				line-height: 1;
+				height: size(40px);
+			}
+		}
+
+		&-control:active {
+			transform: scale(1.1);
+		}
+
+		&-control:focus {
+			box-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
+		}
+
+		&-control:hover {
+			background-color: $dark-gray;
+			color: $apricot-secondary-yellow;
+		}
+	}
+
+	&__items {
+		display: flex;
+		width: 85%;
+		max-width: size(630px);
+		max-height: size(500px);
+		min-height: size(500px);
+		overflow: hidden;
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: size(10px);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+	}
+}
+
+.carousel-item {
+	width: 100%;
+	height: 100%;
+
+	&__image-container {
+		width: 100%;
+		height: size(500px);
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__image-tag {
+		width: auto;
+		height: 100%;
+		display: block;
+		object-fit: contain;
+		object-position: center center;
+	}
+}
