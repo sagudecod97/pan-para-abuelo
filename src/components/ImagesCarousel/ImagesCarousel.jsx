@@ -8,6 +8,7 @@ const CarouselItem = (props) => {
     itemIndex,
     itemsLength,
     isItemActive,
+    isSideSlide,
     id,
   } = props;
 
@@ -16,10 +17,11 @@ const CarouselItem = (props) => {
       className={`
       carousel-item
       ${isItemActive ? '' : '--hidden'}
+      ${isSideSlide.value ? `--slide-item__${isSideSlide.side}` : ''}
       `}
       role='group'
       aria-roledescription='slide'
-      aria-label={`${itemIndex} de ${itemsLength}`}
+      aria-label={`${itemIndex + 1} de ${itemsLength}`}
       aria-hidden={isItemActive}
       id={id}
     >
@@ -46,23 +48,38 @@ const ImagesCarousel = (props) => {
 
   const nextSlideHandler = () => {
     if (currentIndex === imagesArray.length - 1) {
+      setActiveSlides([imagesArray.length -1, 1]);
       return setCurrentIndex(0);
     }
 
+    if (currentIndex === imagesArray.length - 2) {
+      setActiveSlides([currentIndex, 0]);
+      return setCurrentIndex(imagesArray.length - 1);
+    }
+
+    setActiveSlides([currentIndex, currentIndex + 2]);
     setCurrentIndex(currentIndex + 1);
   }
 
   const previousSlideHandler = () => {
     if (currentIndex === 0) {
+      setActiveSlides([imagesArray.length - 2, 0]);
       return setCurrentIndex(imagesArray.length - 1);
     }
 
+    if (currentIndex === 1) {
+      setActiveSlides([imagesArray.length - 1, currentIndex]);
+      return setCurrentIndex(currentIndex - 1);
+    }
+
+    setActiveSlides([currentIndex - 2, currentIndex]);
     setCurrentIndex(currentIndex - 1);
   }
 
   useEffect(() => {
     if (windowWidth >= 991) {
-      setMultipleSlides(true)
+      setMultipleSlides(true);
+      setActiveSlides([imagesArray.length - 1, 1]);
     } else {
       setMultipleSlides(false);
     }
@@ -113,13 +130,19 @@ const ImagesCarousel = (props) => {
       >
         {
           imagesArray.map((image, index) => {
+            const sideSlideObject = {
+              value: activeSlides.includes(index) && multipleSlides,
+              side: activeSlides[0] === index ? 'left' : 'right',
+            };
+
             return (
               <CarouselItem 
                 imageSrc={image.imageSrc}
                 alt={image.alt}
-                itemIndex={index + 1}
+                itemIndex={index}
                 itemsLength={imagesArray.length}
                 isItemActive={currentIndex === index}
+                isSideSlide={sideSlideObject}
                 id={image.id}
               />
             );

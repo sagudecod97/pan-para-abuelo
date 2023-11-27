@@ -4,16 +4,19 @@
 .images-carousel {
 	position: relative;
 	padding: size(50px) 0;
-	background-color: rebeccapurple;
+	// background-color: rebeccapurple;
 
 	&__controls {
 		width: 100%;
+		max-width: size(1400px);
 		display: flex;
 		justify-content: space-between;
 		position: absolute;
 		top: 50%;
-		transform: translateY(-50%);
+		left: 50%;
+		transform: translate(-50%, -50%);
 		padding: 0 3%;
+		z-index: 30;
 
 		&-control {
 			background-color: $apricot-secondary-yellow;
@@ -55,17 +58,20 @@
 		max-width: size(630px);
 		max-height: size(500px);
 		min-height: size(500px);
-		overflow: hidden;
+		border-radius: size(10px);
 		margin-left: auto;
 		margin-right: auto;
-		border-radius: size(10px);
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+		position: relative;
 	}
 }
 
 .carousel-item {
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+	border-radius: size(10px);
+	z-index: 20;
 
 	&__image-container {
 		width: 100%;
@@ -82,5 +88,30 @@
 		display: block;
 		object-fit: contain;
 		object-position: center center;
+	}
+}
+
+.--slide-item {
+	&__right,
+	&__left {
+		display: block;
+		position: absolute;
+		right: -30%;
+		bottom: 50%;
+		transform: translateY(50%);
+		height: 80%;
+		overflow: hidden;
+		z-index: 10;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+		opacity: 0.92;
+	}
+
+	&__right {
+		margin-right: size(30px);
+	}
+
+	&__left {
+		left: -30%;
+		margin-left: size(30px);
 	}
 }
