@@ -8,22 +8,30 @@ const objectCarouselImagesData = {
   imagesArray: [
     {
       imageSrc: Grandma,
-      alt: 'Imagen de señora sonriendo',
+      alt: 'Imagen de abuela observando',
+      href:'/',
+      caption: 'Conoce a Olga',
       id: ((Math.random() * 10) * Math.random()),
     },
     {
       imageSrc: SeniorWoman,
       alt: 'Imagen de señora sonriendo',
+      href:'/',
+      caption: 'Conoce a Vilma',
       id: ((Math.random() * 10) * Math.random()),
     },
     {
       imageSrc: OldWhiteMan,
-      alt: 'Imagen de señora sonriendo',
+      alt: 'Imagen de señor con cara amable',
+      href:'/',
+      caption: 'Conoce a Pedro',
       id: ((Math.random() * 10) * Math.random()),
     },
     {
       imageSrc: OldBlackMand,
-      alt: 'Imagen de señora sonriendo',
+      alt: 'Imagen de señor de color sonriendo',
+      href:'/',
+      caption: 'Conoce a José',
       id: ((Math.random() * 10) * Math.random()),
     },
   ]

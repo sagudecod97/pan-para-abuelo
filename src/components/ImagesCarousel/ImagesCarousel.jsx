@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './ImagesCarousel.scss';
 
+import Link from '../Link/Link';
+
 const CarouselItem = (props) => {
   const {
     imageSrc,
@@ -9,8 +11,12 @@ const CarouselItem = (props) => {
     itemsLength,
     isItemActive,
     isSideSlide,
+    href,
+    caption,
     id,
   } = props;
+
+  console.log(itemIndex + 1, isItemActive && !isSideSlide)
 
   return (
     <div
@@ -22,16 +28,54 @@ const CarouselItem = (props) => {
       role='group'
       aria-roledescription='slide'
       aria-label={`${itemIndex + 1} de ${itemsLength}`}
-      aria-hidden={isItemActive}
+      aria-hidden={isSideSlide.value ? true : !isItemActive}
       id={id}
+      hidden={isSideSlide.value}
     >
-      <div className='carousel-item__image-container'>
-        <img
-          className='carousel-item__image-tag'
-          src={imageSrc}
-          alt={alt}
-        />
-      </div>
+      {
+        href ? (
+          <div className='carousel-item__image-container'>
+            <Link
+              className='carousel-item__image-container'
+              href={href}
+            >
+              <img
+                className='carousel-item__image-tag'
+                src={imageSrc}
+                alt={alt}
+              />
+            </Link>
+          </div>
+        ) : (
+          <div className='carousel-item__image-container'>
+            <img
+              className='carousel-item__image-tag'
+              src={imageSrc}
+              alt={alt}
+            />
+        </div>
+        )
+      }
+
+      {
+        (caption && href) && (
+          <div class="carousel-item__caption">
+            <h3
+              className='carousel-item__caption-title'
+            >
+              <Link
+                className='carousel-item__caption-link'
+                href={href}
+                id="carousel-label-1"
+              >
+              {
+                caption
+              }
+              </Link>
+            </h3>
+          </div>
+        )
+      }
     </div>
   );
 };
@@ -144,6 +188,7 @@ const ImagesCarousel = (props) => {
                 isItemActive={currentIndex === index}
                 isSideSlide={sideSlideObject}
                 id={image.id}
+                {...image}
               />
             );
           })
