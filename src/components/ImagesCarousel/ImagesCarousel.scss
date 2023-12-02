@@ -4,7 +4,6 @@
 .images-carousel {
 	position: relative;
 	padding: size(50px) 0;
-	// background-color: rebeccapurple;
 
 	&__controls {
 		width: 100%;
@@ -79,6 +78,7 @@
 		height: size(500px);
 		overflow: hidden;
 		display: flex;
+		padding: 0;
 		justify-content: center;
 		align-items: center;
 	}
@@ -96,7 +96,6 @@
 		bottom: 5%;
 		left: 50%;
 		transform: translateX(-50%);
-		padding: size(7px);
 		border-radius: size(10px);
 		background-color: rgba(0, 0, 0, 0.6);
 		width: 90%;
@@ -105,42 +104,50 @@
 			max-width: 100%;
 			text-align: center;
 			font-size: size(28px);
-			padding: 0 5%;
 			color: $white;
 		}
 
 		&-link {
+			display: block;
 			max-width: 100%;
+			padding: size(7px);
 			color: $white;
+			border-radius: size(10px);
 		}
 
 		&-link:focus {
 			outline-style: none;
+			box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.7);
 		}
 	}
 }
 
-.--slide-item {
-	&__right,
-	&__left {
-		display: block;
-		position: absolute;
-		right: -30%;
-		bottom: 50%;
-		transform: translateY(50%);
-		height: 80%;
-		overflow: hidden;
-		z-index: 10;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-		opacity: 0.92;
-	}
+.side-slide {
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	transform: translate(-65%, 50%);
+	height: size(400px);
+	min-height: size(400px);
+	min-width: size(630px);
+	overflow: hidden;
+	z-index: 10;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+	border-radius: size(10px);
+	opacity: 0.92;
 
-	&__right {
-		margin-right: size(30px);
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center center;
 	}
+}
 
-	&__left {
-		left: -30%;
-		margin-left: size(30px);
-	}
+.--right {
+	background-color: rebeccapurple;
+	right: 50%;
+	bottom: 50%;
+	transform: translate(65%, 50%);
+	left: initial;
 }

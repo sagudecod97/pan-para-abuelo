@@ -3,6 +3,29 @@ import './ImagesCarousel.scss';
 
 import Link from '../Link/Link';
 
+const SideSlide = (props) => {
+  const {
+    imageSrc,
+    alt,
+    isLeft,
+  } = props;
+
+  return (
+    <div
+      className={`
+      side-slide
+      ${isLeft ? '' : '--right'}
+      `}
+    >
+      <img
+        className='side-slide__img'
+        src={imageSrc}
+        alt={alt}
+      />
+    </div>
+  );
+}
+
 const CarouselItem = (props) => {
   const {
     imageSrc,
@@ -10,27 +33,21 @@ const CarouselItem = (props) => {
     itemIndex,
     itemsLength,
     isItemActive,
-    isSideSlide,
     href,
     caption,
     id,
   } = props;
-
-  console.log(itemIndex + 1, isItemActive && !isSideSlide)
 
   return (
     <div
       className={`
       carousel-item
       ${isItemActive ? '' : '--hidden'}
-      ${isSideSlide.value ? `--slide-item__${isSideSlide.side}` : ''}
       `}
       role='group'
       aria-roledescription='slide'
       aria-label={`${itemIndex + 1} de ${itemsLength}`}
-      aria-hidden={isSideSlide.value ? true : !isItemActive}
       id={id}
-      hidden={isSideSlide.value}
     >
       {
         href ? (
@@ -166,6 +183,17 @@ const ImagesCarousel = (props) => {
           <span>❯</span>
         </button>
       </div>
+      
+      {
+        multipleSlides && (
+          <SideSlide
+            isLeft={true}
+            {
+              ...imagesArray[activeSlides[0]]
+            }
+          />
+        )
+      }
 
       <div
         className='images-carousel__items'
@@ -174,11 +202,6 @@ const ImagesCarousel = (props) => {
       >
         {
           imagesArray.map((image, index) => {
-            const sideSlideObject = {
-              value: activeSlides.includes(index) && multipleSlides,
-              side: activeSlides[0] === index ? 'left' : 'right',
-            };
-
             return (
               <CarouselItem 
                 imageSrc={image.imageSrc}
@@ -186,7 +209,6 @@ const ImagesCarousel = (props) => {
                 itemIndex={index}
                 itemsLength={imagesArray.length}
                 isItemActive={currentIndex === index}
-                isSideSlide={sideSlideObject}
                 id={image.id}
                 {...image}
               />
@@ -194,6 +216,17 @@ const ImagesCarousel = (props) => {
           })
         }
       </div>
+
+      {
+        multipleSlides && (
+          <SideSlide
+            isLeft={false}
+            {
+              ...imagesArray[activeSlides[1]]
+            }
+          />
+        )
+      }
     </div>
   );
 };
