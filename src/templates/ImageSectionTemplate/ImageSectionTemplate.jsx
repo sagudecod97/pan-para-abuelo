@@ -7,6 +7,7 @@ const ImageSection = (props) => {
     phrase,
     center,
     cta,
+    mainTitle,
     id,
   } = props;
 
@@ -21,32 +22,63 @@ const ImageSection = (props) => {
         alt="Images' section"
       />
 
-      <p
-       className={`
-       section-img__phrase
-       ${center.right ? '--right' : ''}
-       ${center.left ? '--left' : ''}
-       ${center.center ? '--center' : ''}
-       `}
-       id={cta ? 'img-phrase' : ''}
-      >
-        {
-          phrase
-        }
-        {
-          cta && (
-            <a
-              aria-labelledby='img-phrase'
-              className='section-img__link'
-              href={cta.url}
-            >
-              {
-              cta.text
-              }
-            </a>
-          )
-        }
-      </p>
+      {
+        mainTitle ? (
+          <p
+            className={`
+            section-img__phrase
+            ${center.right ? '--right' : ''}
+            ${center.left ? '--left' : ''}
+            ${center.center ? '--center' : ''}
+            `}
+            id={cta ? 'img-phrase' : ''}
+          >
+            {
+              phrase
+            }
+            {
+              cta && (
+                <a
+                  aria-labelledby='img-phrase'
+                  className='section-img__link'
+                  href={cta.url}
+                >
+                  {
+                  cta.text
+                  }
+                </a>
+              )
+            }
+          </p>
+        ) : (
+          <h1
+            className={`
+            section-img__phrase
+            ${center.right ? '--right' : ''}
+            ${center.left ? '--left' : ''}
+            ${center.center ? '--center' : ''}
+            `}
+            id={cta ? 'img-phrase' : ''}
+          >
+            {
+              phrase
+            }
+            {
+              cta && (
+                <a
+                  aria-labelledby='img-phrase'
+                  className='section-img__link'
+                  href={cta.url}
+                >
+                  {
+                  cta.text
+                  }
+                </a>
+              )
+            }
+          </h1>
+        )
+      }
     </section>
   );
 };
@@ -84,18 +116,17 @@ const ImageSectionTemplate = (props) => {
         if (arrayElem.type === 'img') {
           return (
             <ImageSection
-              image={arrayElem.image}
-              phrase={arrayElem.phrase}
-              center={arrayElem.center}
-              cta={arrayElem.cta}
-              id={arrayElem.id}
+              {
+                ...arrayElem
+              }
             />
           );
         } else {
           return (
             <DescriptionSection
-              title={arrayElem.title}
-              id={arrayElem.id}
+              {
+                ...arrayElem
+              }
             />
           );
         }
