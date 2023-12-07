@@ -1,6 +1,8 @@
 import React from "react";
 import './PersonDescription.scss';
 
+import formatDescription from "../../utils/formatDescription";
+
 const PersonDescription = (props) => {
   const {
     title,
@@ -10,26 +12,11 @@ const PersonDescription = (props) => {
     id,
   } = props;
 
-  const formatDescription = () => {
-    let newDescriptionArray = [];
-
-    for(let textElem = 0; textElem < description.length; textElem++) {
-      if (textElem % 2 === 0) {
-        newDescriptionArray.push(description[textElem]);
-        newDescriptionArray.push("");
-      } else {
-        newDescriptionArray.push(description[textElem]);
-      }
-    }
-
-    return newDescriptionArray;
-  }
-
   const descriptionTemplate = <p
     className='person__about-description'
   >
     {
-     formatDescription().map((descriptionElem) => {
+     formatDescription(description).map((descriptionElem) => {
       if (descriptionElem === "") {
         return (
           <>
