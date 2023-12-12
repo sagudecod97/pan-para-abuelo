@@ -1,0 +1,76 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.offered-services {
+	padding: size(50px) size(20px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__title {
+		text-transform: capitalize;
+		padding-bottom: size(20px);
+		font-family: $roboto-bold;
+
+		@include respond-to($media-sm) {
+			font-size: (28px);
+		}
+
+		@include respond-to($media-lg) {
+			font-size: (34px);
+		}
+	}
+
+	&__description {
+		text-align: center;
+		max-width: size(800px);
+
+		@include respond-to($media-sm) {
+			font-size: (18px);
+		}
+	}
+}
+
+.services {
+	width: 100%;
+	padding: size(30px) 0 size(70px) 0;
+	display: grid;
+	grid-template-columns: size(340px);
+	gap: size(30px);
+	justify-content: center;
+	align-items: center;
+
+	@include respond-to($media-sm) {
+		grid-template-columns: repeat(2, size(340px));
+		padding-top: size(50px);
+	}
+
+	@include respond-to($media-lg) {
+		grid-template-columns: repeat(3, size(340px));
+	}
+
+	&__item {
+		background-color: $primary-soft-gold;
+		border-radius: size(10px);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: size(10px) 0;
+		max-width: size(340px);
+	}
+
+	&__img {
+		width: 100%;
+		max-height: size(140px);
+		max-width: size(140px);
+	}
+
+	&__description {
+		font-family: $roboto-medium;
+		text-transform: capitalize;
+		font-size: size(24px);
+		color: $dark-gray;
+		padding-top: size(30px);
+	}
+}
