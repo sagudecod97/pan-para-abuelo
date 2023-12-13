@@ -8,6 +8,8 @@ import Recreation from '../../assets/images/Recreación-300x300.png';
 import HealthDays from '../../assets/images/Jornadas-de-salud--300x300.png';
 import Workshops from '../../assets/images/Capacitación-300x300.png';
 
+import Link from '../Link/Link';
+
 const OfferedServices = () => {
   return (
     <section
@@ -130,6 +132,13 @@ const OfferedServices = () => {
           </p>
         </li>
       </ul>
+
+      <Link
+        className='offered-services__cta'
+        href='/'
+      >
+        Conoce Más Servicios
+      </Link>
     </section>
   );
 };

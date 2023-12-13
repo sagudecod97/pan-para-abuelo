@@ -29,11 +29,18 @@
 			font-size: (18px);
 		}
 	}
+
+	&__cta {
+		color: $dark-gray;
+		text-decoration: underline;
+		font-family: $roboto-bold;
+		font-size: size(20px);
+	}
 }
 
 .services {
 	width: 100%;
-	padding: size(30px) 0 size(70px) 0;
+	padding: size(30px) 0 size(30px) 0;
 	display: grid;
 	grid-template-columns: size(340px);
 	gap: size(30px);
@@ -43,6 +50,7 @@
 	@include respond-to($media-sm) {
 		grid-template-columns: repeat(2, size(340px));
 		padding-top: size(50px);
+		padding-bottom: size(40px);
 	}
 
 	@include respond-to($media-lg) {
