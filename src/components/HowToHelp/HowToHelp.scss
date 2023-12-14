@@ -1,0 +1,104 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.how-help {
+	padding: size(60px) size(20px);
+
+	&__title {
+		text-align: center;
+		padding-bottom: size(40px);
+		font-family: $roboto-bold;
+		text-transform: capitalize;
+
+		@include respond-to($media-sm) {
+			font-size: (28px);
+			padding-bottom: size(50px);
+		}
+
+		@include respond-to($media-lg) {
+			font-size: (34px);
+		}
+	}
+
+	&__container {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: size(30px);
+	}
+}
+
+.help-card {
+	width: 100%;
+	border-radius: size(8px);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+	background-color: $white;
+
+	@include respond-to($media-sm) {
+		display: flex;
+		max-width: size(1100px);
+	}
+
+	&__container {
+		width: 100%;
+		height: size(180px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: size(20px);
+		background-color: $primary-soft-gold;
+		overflow: hidden;
+
+		@include respond-to($media-sm) {
+			width: size(250px);
+			min-width: size(250px);
+			height: 250px;
+		}
+
+		&-img {
+			width: auto;
+			height: 100%;
+
+			@include respond-to($media-sm) {
+				object-fit: cover;
+			}
+		}
+	}
+
+	&__info {
+		padding: size(20px);
+		display: flex;
+		flex-direction: column;
+
+		&-title {
+			font-family: $roboto-bolder;
+			font-size: size(22px);
+			padding-bottom: size(10px);
+			text-transform: capitalize;
+
+			@include respond-to($media-sm) {
+				font-size: size(26px);
+			}
+		}
+
+		&-description {
+			font-size: size(18px);
+
+			@include respond-to($media-sm) {
+				font-size: size(18px);
+				max-height: size(120px);
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+
+		&-cta {
+			font-size: size(18px);
+			padding: 0;
+			margin-top: auto;
+		}
+	}
+}
