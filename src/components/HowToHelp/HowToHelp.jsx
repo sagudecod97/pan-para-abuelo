@@ -61,6 +61,7 @@ const HelpCard = (props) => {
         >
           Conoce más sobre
           <Link
+            className='help-card__info-link'
             href={ctaHref}
           >
           {" "}{ title }
@@ -82,6 +83,14 @@ const HowToHelp = (props) => {
       >
         Cómo puedes ayudarnos
       </h2>
+
+      <p
+       className='how-help__description'
+      >
+        Descubre cómo puedes marcar la diferencia. Desde apoyar a nuestros abuelos con compras en nuestro Ropero hasta donar para honrar 
+        a tus seres queridos, y ofrecer tu tiempo y habilidades, ¡Acompáñanos y encuentra la forma perfecta de ayudarnos!
+      </p>
+  
       <ul
         className='how-help__container'
       >
