@@ -122,7 +122,11 @@
 		}
 
 		&-link {
-			text-decoration: underline;
+			color: $black;
+			padding-left: size(3px);
+			font-size: size(20px);
+			text-transform: capitalize;
+			border-bottom: 1px solid $black;
 		}
 	}
 }
