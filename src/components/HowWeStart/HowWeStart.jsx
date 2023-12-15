@@ -38,7 +38,7 @@ const HowWeStart = ({ howWeStartData}) => {
               return descriptionElem; 
             }
           })
-          }
+        }
       </p>
 
       <div
