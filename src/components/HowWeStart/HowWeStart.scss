@@ -15,7 +15,6 @@
 
 	@include respond-to($media-lg) {
 		padding: size(110px) size(20px) size(180px) size(20px);
-		padding-bottom: 200px;
 	}
 
 	&__title {
@@ -76,7 +75,6 @@
 .img-container {
 	width: 100%;
 	height: size(250px);
-	overflow: hidden;
 	border-radius: size(10px);
 	overflow: hidden;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
@@ -145,11 +143,6 @@
 			z-index: 3;
 		}
 	}
-
-	// @include respond-to($media-md) {
-	// 	width: 100%;
-	// 	height: size(300px);
-	// }
 
 	&__img {
 		width: 100%;
