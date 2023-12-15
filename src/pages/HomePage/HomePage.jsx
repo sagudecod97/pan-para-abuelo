@@ -14,10 +14,14 @@ const HomePage = () => {
       homeDescriptionData={homePageData.homeDescription}
       />,
     <OfferedServices
-      servicesCards={homePageData.homeOfferedServices}
+      title={homePageData.homeOfferedServices.title}
+      description={homePageData.homeOfferedServices.description}
+      servicesCards={homePageData.homeOfferedServices.servicesCards}
     />,
     <HowToHelp
-      cardsData={homePageData.homeHowToHelp}
+      title={homePageData.homeHowToHelp.title}
+      description={homePageData.homeHowToHelp.description}
+      cardsData={homePageData.homeHowToHelp.cardsData}
     />
   ]
   return (

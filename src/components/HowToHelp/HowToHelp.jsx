@@ -73,7 +73,11 @@ const HelpCard = (props) => {
 }
 
 const HowToHelp = (props) => {
-  const { cardsData } = props;
+  const {
+    title,
+    description,
+    cardsData,
+  } = props;
   return (
     <section
       className='how-help'
@@ -81,14 +85,17 @@ const HowToHelp = (props) => {
       <h2
         className='how-help__title'
       >
-        Cómo puedes ayudarnos
+        {
+          title
+        }
       </h2>
 
       <p
        className='how-help__description'
       >
-        Descubre cómo puedes marcar la diferencia. Desde apoyar a nuestros abuelos con compras en nuestro Ropero hasta donar para honrar 
-        a tus seres queridos, y ofrecer tu tiempo y habilidades, ¡Acompáñanos y encuentra la forma perfecta de ayudarnos!
+        {
+          description
+        }
       </p>
   
       <ul

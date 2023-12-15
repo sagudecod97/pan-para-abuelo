@@ -34,7 +34,11 @@ const OfferedServiceCard = (props) => {
 }
 
 const OfferedServices = (props) => {
-  const { servicesCards } = props;
+  const { 
+    title,
+    description,
+    servicesCards,
+  } = props;
 
   return (
     <section
@@ -43,13 +47,17 @@ const OfferedServices = (props) => {
       <h2
         className='offered-services__title'
       >
-        Qué servicios ofrecemos
+        {
+          title
+        }
       </h2>
 
       <p
         className='offered-services__description'
       >
-        Alimentación de lunes a sábado, recreación y acompañamiento en citas médicas, de registro y demás.
+        {
+          description
+        }
       </p>
 
       <ul
