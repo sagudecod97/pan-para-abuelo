@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ImageSectionTemplate.scss';
 
 const ImageSection = (props) => {
@@ -83,53 +83,46 @@ const ImageSection = (props) => {
   );
 };
 
-const DescriptionSection = (props) => {
-  const {
-    title,
-    id,
-  } = props;
-  return (
-    <section
-      className='section-description'
-      id={id}
-    >
-      <h2
-        className='section-description__title'
-      >
-        {
-          title
-        }
-      </h2>
-    </section>
-  )
-}
-
 const ImageSectionTemplate = (props) => {
   const {
     imagesArray,
+    sections,
   } = props;
+
+  const [joinedComponents, setJoinedComponents] = useState([]);
+
+  useEffect(() => {
+    const joinedComponentsArr = [];
+
+    for (let index = 0; index < imagesArray.length; index++) {
+      if (sections[index]) {
+        joinedComponentsArr.push(
+        <ImageSection
+          {
+            ...imagesArray[index]
+          }
+        />
+        );
+        joinedComponentsArr.push(<>{sections[index]}</>);
+      } else {
+        joinedComponentsArr.push(
+          <ImageSection
+            {
+              ...imagesArray[index]
+            }
+          />
+          );
+      }
+    }
+
+    setJoinedComponents(joinedComponentsArr);
+  }, [imagesArray, sections])
 
   return (
     <>
     {
-      imagesArray.map((arrayElem) =>{
-        if (arrayElem.type === 'img') {
-          return (
-            <ImageSection
-              {
-                ...arrayElem
-              }
-            />
-          );
-        } else {
-          return (
-            <DescriptionSection
-              {
-                ...arrayElem
-              }
-            />
-          );
-        }
+      joinedComponents.map(component => {
+        return(component);
       })
     }
     </>

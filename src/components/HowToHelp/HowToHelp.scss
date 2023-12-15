@@ -4,6 +4,10 @@
 .how-help {
 	padding: size(60px) size(20px);
 
+	@include respond-to($media-lg) {
+		padding: size(110px) size(20px) size(180px) size(20px);
+	}
+
 	&__title {
 		text-align: center;
 		padding-bottom: size(20px);
