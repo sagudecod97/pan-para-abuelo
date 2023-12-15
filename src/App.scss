@@ -12,7 +12,12 @@
 .main {
 	position: relative;
 	padding-top: size(101px);
-	padding-bottom: 900px;
+	padding-bottom: size(830px);
+
+	@include respond-to($media-sm) {
+		padding-top: size(101px);
+		padding-bottom: size(523px);
+	}
 
 	@include respond-to($media-lg) {
 		padding-top: size(121px);

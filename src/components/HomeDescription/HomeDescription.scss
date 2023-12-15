@@ -2,7 +2,7 @@
 @import "../../styles/variables.scss";
 
 .home-description {
-	padding: size(20px);
+	padding: size(60px) size(20px);
 	display: flex;
 	flex-direction: column;
 	max-width: size(1200px);
@@ -14,8 +14,11 @@
 		flex-wrap: wrap;
 	}
 
+	@include respond-to($media-lg) {
+		padding: size(110px) size(20px) size(150px) size(20px);
+	}
+
 	&__title {
-		padding-top: size(30px);
 		color: $dark-gray;
 		text-align: center;
 		text-transform: capitalize;
@@ -26,6 +29,10 @@
 			font-size: size(38px);
 			font-family: $roboto-bold;
 			text-align: left;
+		}
+
+		@include respond-to($media-lg) {
+			padding: 0;
 		}
 	}
 
@@ -78,7 +85,7 @@
 
 	&__cta {
 		width: 100%;
-		padding: size(80px) 0 size(38px) 0;
+		padding: size(60px) 0 0 0;
 		display: flex;
 		justify-content: center;
 

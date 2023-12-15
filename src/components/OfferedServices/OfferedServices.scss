@@ -2,10 +2,15 @@
 @import "../../styles/variables.scss";
 
 .offered-services {
-	padding: size(50px) size(20px);
+	padding: size(60px) size(20px);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	@include respond-to($media-lg) {
+		font-size: (34px);
+		padding: size(110px) size(20px) size(150px) size(20px);
+	}
 
 	&__title {
 		text-transform: capitalize;

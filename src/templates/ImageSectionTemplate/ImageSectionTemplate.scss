@@ -5,6 +5,7 @@
 	overflow: hidden;
 	width: 100%;
 	position: relative;
+	box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
 
 	&__image {
 		width: 100%;
@@ -36,7 +37,8 @@
 		align-items: center;
 		padding: size(20px);
 		text-transform: uppercase;
-		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+		box-shadow: inset 0px 2px 10px rgba(0, 0, 0, 0.9);
 
 		@include respond-to($media-md) {
 			font-size: size(65px);
@@ -73,6 +75,7 @@
 		transition: background-color 0.3s ease, color 0.3s ease;
 		transition: transform 0.3s ease;
 		color: $dark-gray;
+		font-size: size(38px);
 	}
 
 	&__link:active {
@@ -83,8 +86,4 @@
 		background-color: $dark-gray;
 		color: $primary-soft-gold;
 	}
-}
-
-.section-description {
-	min-height: size(500px);
 }

@@ -1,16 +1,41 @@
 import React from "react";
 import './OfferedServices.scss';
 
-import Feeding from '../../assets/images/Alimentación-300x300.png';
-import LegalAdice from '../../assets/images/Asesoria-Juridica-300x300.png';
-import Training from '../../assets/images/Capacitación-300x300.png';
-import Recreation from '../../assets/images/Recreación-300x300.png';
-import HealthDays from '../../assets/images/Jornadas-de-salud--300x300.png';
-import Workshops from '../../assets/images/Capacitación-300x300.png';
-
 import Link from '../Link/Link';
 
-const OfferedServices = () => {
+const OfferedServiceCard = (props) => {
+  const {
+    imageSrc,
+    title,
+    id,
+  } = props;
+
+  return (
+    <li
+      className='services__item'
+      id={id}
+    >
+      <img
+        className='services__img'
+        src={imageSrc}
+        alt=''
+        aria-hidden='true'
+      />
+
+      <p
+        className='services__description'
+      >
+        {
+          title
+        }
+      </p>
+    </li>
+  );
+}
+
+const OfferedServices = (props) => {
+  const { servicesCards } = props;
+
   return (
     <section
     className='offered-services'
@@ -30,107 +55,17 @@ const OfferedServices = () => {
       <ul
         className='services'
       >
-        <li
-          className='services__item'
-        >
-          <img
-            className='services__img'
-            src={Feeding}
-            alt=''
-            aria-hidden='true'
-          />
-
-          <p
-            className='services__description'
-          >
-            Alimentación
-          </p>
-        </li>
-
-        <li
-          className='services__item'
-        >
-          <img
-            className='services__img'
-            src={LegalAdice}
-            alt=''
-            aria-hidden='true'
-          />
-
-          <p
-            className='services__description'
-          >
-            Asesoría Jurídica
-          </p>
-        </li>
-
-        <li
-          className='services__item'
-        >
-          <img
-            className='services__img'
-            src={Training}
-            alt=''
-            aria-hidden='true'
-          />
-
-          <p
-            className='services__description'
-          >
-            Capacitación
-          </p>
-        </li>
-
-        <li
-          className='services__item'
-        >
-          <img
-            className='services__img'
-            src={Recreation}
-            alt=''
-            aria-hidden='true'
-          />
-
-          <p
-            className='services__description'
-          >
-            Recreación
-          </p>
-        </li>
-
-        <li
-          className='services__item'
-        >
-          <img
-            className='services__img'
-            src={HealthDays}
-            alt=''
-            aria-hidden='true'
-          />
-
-          <p
-            className='services__description'
-          >
-            Jornadas de Salud
-          </p>
-        </li>
-
-        <li
-          className='services__item'
-        >
-          <img
-            className='services__img'
-            src={Workshops}
-            alt=''
-            aria-hidden='true'
-          />
-
-          <p
-            className='services__description'
-          >
-            Talleres
-          </p>
-        </li>
+        {
+          servicesCards.map(service => {
+            return (
+              <OfferedServiceCard
+              {
+                ...service
+              }
+              />
+            );
+          })
+        }
       </ul>
 
       <Link

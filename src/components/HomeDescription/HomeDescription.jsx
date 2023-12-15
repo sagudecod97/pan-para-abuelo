@@ -5,14 +5,14 @@ import Link from "../Link/Link";
 
 import formatDescription from "../../utils/formatDescription";
 
-const HomeDescription = (props) => {
+const HomeDescription = ({ homeDescriptionData}) => {
   const {
     title,
     description,
     imageSrc,
     alt,
     cta,
-  } = props;
+  } = homeDescriptionData;
 
   return(
     <section
