@@ -3,14 +3,12 @@
 
 .institutional {
 	padding: size(60px) size(20px);
-	padding-bottom: 200px;
 	max-width: size(1100px);
 	margin-left: auto;
 	margin-right: auto;
 
 	@include respond-to($media-lg) {
 		padding: size(110px) size(20px) size(180px) size(20px);
-		padding-bottom: 200px;
 		display: flex;
 		flex-wrap: wrap;
 		gap: 5%;

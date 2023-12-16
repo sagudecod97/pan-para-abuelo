@@ -1,0 +1,35 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.team {
+	padding: size(60px) size(20px);
+	max-width: size(1100px);
+	margin-left: auto;
+	margin-right: auto;
+
+	@include respond-to($media-lg) {
+		padding: size(110px) size(20px) size(180px) size(20px);
+	}
+
+	&__title {
+		text-align: center;
+		padding-bottom: size(20px);
+		font-family: $roboto-bold;
+		text-transform: capitalize;
+		font-size: (28px);
+
+		@include respond-to($media-sm) {
+			width: 100%;
+			padding-bottom: size(30px);
+		}
+
+		@include respond-to($media-lg) {
+			width: 100%;
+			font-size: (34px);
+		}
+	}
+
+	&__container {
+		width: 100%;
+	}
+}
