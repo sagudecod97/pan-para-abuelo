@@ -23,7 +23,7 @@ const ImageSection = (props) => {
       />
 
       {
-        mainTitle ? (
+        !mainTitle ? (
           <p
             className={`
             section-img__phrase

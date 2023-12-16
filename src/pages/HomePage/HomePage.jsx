@@ -23,7 +23,8 @@ const HomePage = () => {
       description={homePageData.homeHowToHelp.description}
       cardsData={homePageData.homeHowToHelp.cardsData}
     />
-  ]
+  ];
+
   return (
     <ImageSectionTemplate
       imagesArray={homePageData.homeImagesComponents}
