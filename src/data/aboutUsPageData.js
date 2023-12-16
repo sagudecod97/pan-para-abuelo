@@ -5,6 +5,54 @@ import Mission from '../assets/images/mission.png';
 import Vision from '../assets/images/darkeye.png';
 
 const aboutUsPageData = {
+  aboutUsImagesComponents: [
+    {
+      image: OldWhiteMan,
+      phrase: 'Conece más sobre nuestra fundación',
+      center: {
+        right: true,
+        center: false,
+        left: false,
+      },
+      mainTitle: true,
+      id: ((Math.random() * 10) * Math.random()),
+    },
+    {
+      image: OldBlackMan,
+      phrase: 'Sabiduría que ilumina caminos',
+      center: {
+        right: false,
+        center: true,
+        left: false,
+      },
+      id: ((Math.random() * 10) * Math.random()),
+    },
+    {
+      image: OldWhiteMan,
+      phrase: 'Historias que inspiran respeto',
+      center: {
+        right: false,
+        center: false,
+        left: true,
+      },
+      id: ((Math.random() * 10) * Math.random()),
+    },
+    {
+      type: 'img',
+      image: OldBlackMan,
+      phrase: 'Apoya a nuestro abuelos',
+      center: {
+        right: false,
+        center: true,
+        left: false,
+      },
+      cta: {
+        text: 'Donar',
+        url: '/',
+      },
+      id: ((Math.random() * 10) * Math.random()),
+    },
+  ],
   aboutUsHowWeStart: {
     title: 'Cómo iniciamos',
     description: [`¡Imagina un grupo de amigos decididos a hacer la diferencia en la vida de adultos mayores desprotegidos! 

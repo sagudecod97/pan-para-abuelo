@@ -60,7 +60,6 @@
 
 	@include respond-to($media-sm) {
 		height: size(500px);
-		margin-bottom: 500px;
 		max-width: size(800px);
 		margin-left: auto;
 		margin-right: auto;
