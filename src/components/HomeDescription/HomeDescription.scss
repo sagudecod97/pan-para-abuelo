@@ -1,0 +1,109 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.home-description {
+	padding: size(60px) size(20px);
+	display: flex;
+	flex-direction: column;
+	max-width: size(1200px);
+	margin-left: auto;
+	margin-right: auto;
+
+	@include respond-to($media-sm) {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	@include respond-to($media-lg) {
+		padding: size(110px) size(20px) size(150px) size(20px);
+	}
+
+	&__title {
+		color: $dark-gray;
+		text-align: center;
+		text-transform: capitalize;
+
+		@include respond-to($media-sm) {
+			width: 100%;
+			padding: size(40px) 0 size(0px) 0;
+			font-size: size(38px);
+			font-family: $roboto-bold;
+			text-align: left;
+		}
+
+		@include respond-to($media-lg) {
+			padding: 0;
+		}
+	}
+
+	&__paragraph {
+		padding: size(30px) 0;
+		text-align: center;
+
+		@include respond-to($media-sm) {
+			width: 56%;
+			font-size: $roboto-medium;
+			font-size: size(18px);
+			text-align: left;
+		}
+	}
+
+	&__container {
+		width: 100%;
+		height: size(300px);
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+		border-radius: size(10px);
+		position: relative;
+
+		@include respond-to($media-sm) {
+			width: 40%;
+			height: size(400px);
+			margin: size(30px) 0 0 4%;
+		}
+
+		&-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	&__container::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 30%;
+		height: 100%;
+		background: linear-gradient(to right, #f2f2f2, transparent);
+	}
+
+	&__cta {
+		width: 100%;
+		padding: size(60px) 0 0 0;
+		display: flex;
+		justify-content: center;
+
+		&-link {
+			background-color: $apricot-secondary-yellow;
+			border-radius: 6px;
+			padding: size(10px) size(25px);
+			box-shadow: 0 0 size(5px) rgba(0, 0, 0, 0.2);
+			color: $dark-gray;
+		}
+
+		&-link:active {
+			transform: scale(1.1);
+		}
+
+		&-link:hover {
+			background-color: $dark-gray;
+			color: $apricot-secondary-yellow !important;
+		}
+	}
+}

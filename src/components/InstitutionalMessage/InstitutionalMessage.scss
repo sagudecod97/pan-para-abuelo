@@ -1,0 +1,96 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.institutional {
+	padding: size(60px) size(20px);
+	max-width: size(1100px);
+	margin-left: auto;
+	margin-right: auto;
+
+	@include respond-to($media-lg) {
+		padding: size(110px) size(20px) size(180px) size(20px);
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5%;
+	}
+
+	&__title {
+		text-align: center;
+		padding-bottom: size(20px);
+		font-family: $roboto-bold;
+		text-transform: capitalize;
+		font-size: (28px);
+
+		@include respond-to($media-sm) {
+			width: 100%;
+			padding-bottom: size(30px);
+		}
+
+		@include respond-to($media-lg) {
+			width: 100%;
+			font-size: (34px);
+		}
+	}
+}
+
+.message {
+	width: 100%;
+	padding-top: size(40px);
+
+	@include respond-to($media-lg) {
+		width: 46%;
+	}
+
+	&__container {
+		width: size(210px);
+		height: size(150px);
+		border-radius: size(10px);
+		overflow: hidden;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: $primary-soft-gold;
+
+		@include respond-to($media-lg) {
+			width: 80%;
+		}
+
+		&-img {
+			width: 80%;
+			height: 80%;
+			object-fit: contain;
+			object-position: center;
+			overflow: hidden;
+
+			@include respond-to($media-lg) {
+				width: size(210px);
+			}
+
+			&--smaller {
+				height: 60%;
+			}
+		}
+	}
+
+	&__title {
+		font-size: size(24px);
+		text-align: center;
+		padding: size(30px) 0;
+	}
+
+	&__description {
+		text-align: center;
+		padding-bottom: size(40px);
+
+		@include respond-to($media-sm) {
+			font-size: size(18px);
+		}
+
+		@include respond-to($media-lg) {
+			text-align: left;
+		}
+	}
+}

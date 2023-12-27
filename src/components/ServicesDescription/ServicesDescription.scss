@@ -1,0 +1,96 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.services-description {
+	padding: size(60px) size(20px);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@include respond-to($media-lg) {
+		font-size: (34px);
+		padding: size(110px) size(20px) size(150px) size(20px);
+	}
+
+	&__title {
+		text-align: center;
+		text-transform: capitalize;
+		padding-bottom: size(20px);
+		font-family: $roboto-bold;
+
+		@include respond-to($media-sm) {
+			font-size: (28px);
+		}
+
+		@include respond-to($media-lg) {
+			font-size: (34px);
+		}
+	}
+
+	&__description {
+		text-align: center;
+		max-width: size(800px);
+
+		@include respond-to($media-sm) {
+			font-size: (18px);
+		}
+	}
+
+	&__container {
+		padding-top: size(40px);
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: size(20px);
+		justify-content: center;
+
+		@include respond-to($media-sm) {
+			grid-template-columns: repeat(2, size(340px));
+			padding-top: size(50px);
+			padding-bottom: size(40px);
+		}
+
+		@include respond-to($media-lg) {
+			grid-template-columns: repeat(3, size(340px));
+		}
+	}
+}
+
+.service-card {
+	border-radius: size(10px);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	background-color: $white;
+	max-width: size(340px);
+	overflow: hidden;
+
+	&__container {
+		background-color: $primary-soft-gold;
+		padding: size(30px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: size(10px);
+	}
+
+	&__img {
+		display: block;
+		width: 40%;
+		height: 40%;
+		max-width: size(130px);
+		max-height: size(130px);
+	}
+
+	&__title {
+		font-size: size(24px);
+		width: 60%;
+		text-wrap: wrap;
+
+		@include respond-to($media-sm) {
+			font-size: size(28px);
+		}
+	}
+
+	&__description {
+		padding: size(15px);
+		font-size: size(16px);
+	}
+}

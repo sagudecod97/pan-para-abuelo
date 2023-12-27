@@ -1,7 +1,25 @@
+@import "./styles/mixins.scss";
+@import "./styles/variables.scss";
+
 .App {
 	width: 100%;
 	height: 100%;
 	position: relative;
 	min-height: 100vh;
 	background-color: #f2f2f2;
+}
+
+.main {
+	position: relative;
+	padding-top: size(101px);
+	padding-bottom: size(830px);
+
+	@include respond-to($media-sm) {
+		padding-top: size(101px);
+		padding-bottom: size(523px);
+	}
+
+	@include respond-to($media-lg) {
+		padding-top: size(121px);
+	}
 }

@@ -8,8 +8,10 @@
 	justify-content: space-between;
 	align-items: center;
 	box-shadow: 0 size(3px) size(5px) rgba(0, 0, 0, 0.2);
-	position: relative;
+	position: fixed;
 	border-bottom: 1px solid $light-gray;
+	z-index: 100;
+	width: 100%;
 
 	@include respond-to($media-lg) {
 		padding: size(10px) auto size(10px) auto;
@@ -64,7 +66,7 @@
 		position: initial;
 		box-shadow: none;
 		padding-left: size(80px);
-		display: block !important;
+		display: block;
 		max-width: size(1400px);
 	}
 
@@ -137,15 +139,27 @@
 				border-radius: 6px;
 				padding: size(10px) size(25px);
 				box-shadow: 0 0 size(5px) rgba(0, 0, 0, 0.2);
-
-				&:active {
-					transform: scale(1.1);
-				}
-
-				.link {
-					color: $white;
-				}
 			}
+		}
+
+		.--donate:active {
+			transform: scale(1.1);
+		}
+
+		.--donate:hover {
+			background-color: $dark-gray;
+
+			.link {
+				color: $apricot-secondary-yellow !important;
+			}
+		}
+	}
+
+	&__link {
+		color: $dark-gray !important;
+
+		&:active {
+			transform: scale(1.05);
 		}
 	}
 }
