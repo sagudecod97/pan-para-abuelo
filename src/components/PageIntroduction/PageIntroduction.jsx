@@ -5,14 +5,14 @@ import Link from "../Link/Link";
 
 import formatDescription from "../../utils/formatDescription";
 
-const PageIntroduction = ({ homeDescriptionData}) => {
+const PageIntroduction = ({ pageIntroductionData }) => {
   const {
     title,
     description,
     imageSrc,
     alt,
     cta,
-  } = homeDescriptionData;
+  } = pageIntroductionData;
 
   return(
     <section

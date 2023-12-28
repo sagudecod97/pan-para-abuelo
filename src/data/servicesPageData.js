@@ -16,8 +16,29 @@ const servicesPageData = {
       image: OldWhiteMan,
       phrase: 'Brindamos Servicio con Amor',
       center: {
-        right: true,
-        center: false,
+        right: false,
+        center: true,
+        left: false,
+      },
+      mainTitle: true,
+      id: ((Math.random() * 10) * Math.random()),
+    },
+    {
+      image: OldBlackMan,
+      phrase: 'Sabiduría que ilumina caminos',
+      center: {
+        right: false,
+        center: true,
+        left: false,
+      },
+      id: ((Math.random() * 10) * Math.random()),
+    },
+    {
+      image: OldWhiteMan,
+      phrase: 'Sabiduría que ilumina caminos',
+      center: {
+        right: false,
+        center: true,
         left: false,
       },
       id: ((Math.random() * 10) * Math.random()),
@@ -43,8 +64,8 @@ const servicesPageData = {
       `En la Fundación Pan Para un Abuelo, nos dedicamos a brindar un cuidado integral a nuestros abuelos, enfocándonos en su bienestar físico, emocional y social. 
       Cada día, ofrecemos desayunos nutritivos y almuerzos balanceados, asegurándonos de cubrir sus necesidades alimenticias.`, `Además, organizamos talleres 
       educativos y recreativos, promoviendo tanto el aprendizaje práctico como la creatividad. Nuestra preocupación por la higiene personal 
-      se refleja en jornadas dedicadas, donde proporcionamos kits completos y servicios de peluquería. Reconociendo la importancia de sus derechos, 
-      establecemos vínculos con instituciones amigas que pueden actuar como defensores.`, `Y para añadir momentos de alegría, organizamos salidas periódicas 
+      se refleja en jornadas dedicadas, donde proporcionamos kits completos y servicios de peluquería.`, `Reconociendo la importancia de sus derechos, 
+      establecemos vínculos con instituciones amigas que pueden actuar como defensores. Y para añadir momentos de alegría, organizamos salidas periódicas 
       y celebraciones de fechas especiales. En la Fundación Pan Para un Abuelo, elegirnos significa optar por un enfoque holístico que 
       busca mejorar la calidad de vida de nuestros abuelos, brindándoles no solo cuidado físico, sino también apoyo emocional y oportunidades 
       significativas para su desarrollo personal.`
