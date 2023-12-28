@@ -9,7 +9,6 @@ import MeetOurTeam from "../../components/MeetOurTeam/MeetOurTeam";
 import aboutUsPageData from "../../data/aboutUsPageData";
 
 const AboutUsPage = () => {
-  console.log("aboutUsPageData: ", aboutUsPageData)
   const sectionsArray = [
     <HowWeStart
       howWeStartData={aboutUsPageData.aboutUsHowWeStart}
