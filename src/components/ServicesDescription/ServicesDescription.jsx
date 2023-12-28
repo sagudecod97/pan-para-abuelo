@@ -12,7 +12,7 @@ const ServiceCard = (props) => {
   } = props;
 
   return (
-    <div
+    <section
       className='service-card'
       id={id}
     >
@@ -52,7 +52,7 @@ const ServiceCard = (props) => {
           }) 
         }
       </p>
-    </div>
+    </section>
   );
 }
 

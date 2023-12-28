@@ -1,11 +1,11 @@
 import React from "react";
-import './HomeDescription.scss';
+import './PageIntroduction.scss';
 
 import Link from "../Link/Link";
 
 import formatDescription from "../../utils/formatDescription";
 
-const HomeDescription = ({ homeDescriptionData}) => {
+const PageIntroduction = ({ homeDescriptionData}) => {
   const {
     title,
     description,
@@ -55,18 +55,22 @@ const HomeDescription = ({ homeDescriptionData}) => {
         />
       </div>
 
-      <div
-        className='home-description__cta'
-      >
-        <Link
-          href={cta}
-          className='home-description__cta-link'
-        >
-          Quienes somos
-        </Link>
-      </div>
+      {
+        cta && (
+          <div
+            className='home-description__cta'
+          >
+            <Link
+              href={cta}
+              className='home-description__cta-link'
+            >
+              Quienes somos
+            </Link>
+          </div>
+        )
+      }
     </section>
   ); 
 };
 
-export default HomeDescription;
+export default PageIntroduction;

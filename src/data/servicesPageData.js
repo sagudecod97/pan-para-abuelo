@@ -6,6 +6,9 @@ import Training from '../assets/images/Capacitación-300x300.png';
 import Recreation from '../assets/images/Recreación-300x300.png';
 import HealthDays from '../assets/images/Jornadas-de-salud--300x300.png';
 import Workshops from '../assets/images/Capacitación-300x300.png';
+import SeniorWoman from '../assets/images/senior-woman.jpg';
+import Grandma from '../assets/images/grandma.jpg';
+import OldBlackMand from '../assets/images/smiling-old-person.jpg';
 
 const servicesPageData = {
   servicesImagesComponents: [
@@ -34,6 +37,21 @@ const servicesPageData = {
       id: ((Math.random() * 10) * Math.random()),
     },
   ],
+  servicesIntroduction: {
+    title: 'Conoce más sobre nuestros Servicios',
+    description: [
+      `En la Fundación Pan Para un Abuelo, nos dedicamos a brindar un cuidado integral a nuestros abuelos, enfocándonos en su bienestar físico, emocional y social. 
+      Cada día, ofrecemos desayunos nutritivos y almuerzos balanceados, asegurándonos de cubrir sus necesidades alimenticias.`, `Además, organizamos talleres 
+      educativos y recreativos, promoviendo tanto el aprendizaje práctico como la creatividad. Nuestra preocupación por la higiene personal 
+      se refleja en jornadas dedicadas, donde proporcionamos kits completos y servicios de peluquería. Reconociendo la importancia de sus derechos, 
+      establecemos vínculos con instituciones amigas que pueden actuar como defensores.`, `Y para añadir momentos de alegría, organizamos salidas periódicas 
+      y celebraciones de fechas especiales. En la Fundación Pan Para un Abuelo, elegirnos significa optar por un enfoque holístico que 
+      busca mejorar la calidad de vida de nuestros abuelos, brindándoles no solo cuidado físico, sino también apoyo emocional y oportunidades 
+      significativas para su desarrollo personal.`
+    ],
+    imageSrc: OldBlackMan,
+    alt: 'Abuelo sonriendo',
+  },
   servicesServiceDescriptions: {
     title: 'Qué servicios ofrecemos',
     description: [`En la Fundación Pan Para Un Abuelo, ofrecemos servicios integrales para asegurar el bienestar de nuestros adultos mayores. 
@@ -89,6 +107,42 @@ const servicesPageData = {
       },
     ],
   },
+  servicesFeeding: {
+    title: 'Alimentación',
+    description: [`Diariamente, de 8:00 a.m. a 9:30 a.m., servimos un nutritivo desayuno, seguido por un almuerzo 
+    de 12:00 p.m. a 1:00 p.m. Muchos de nuestros beneficiarios optan por llevarse un contenedor de comida para la cena.`],
+    label: 'Carrusel de imágenes de servicio de alimentación',
+    imagesArray: [
+      {
+        imageSrc: Grandma,
+        alt: 'Imagen de abuela observando',
+        href:'/',
+        caption: 'Conoce a Olga',
+        id: ((Math.random() * 10) * Math.random()),
+      },
+      {
+        imageSrc: SeniorWoman,
+        alt: 'Imagen de señora sonriendo',
+        href:'/',
+        caption: 'Conoce a Vilma',
+        id: ((Math.random() * 10) * Math.random()),
+      },
+      {
+        imageSrc: OldWhiteMan,
+        alt: 'Imagen de señor con cara amable',
+        href:'/',
+        caption: 'Conoce a Pedro',
+        id: ((Math.random() * 10) * Math.random()),
+      },
+      {
+        imageSrc: OldBlackMand,
+        alt: 'Imagen de señor de color sonriendo',
+        href:'/',
+        caption: 'Conoce a José',
+        id: ((Math.random() * 10) * Math.random()),
+      },
+    ],
+  }
 };
 
 export default servicesPageData;
