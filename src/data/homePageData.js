@@ -60,7 +60,7 @@ const homePageData = {
       id: ((Math.random() * 10) * Math.random()),
     },
   ],
-  homeDescription: {
+  homeIntroduction: {
     title: 'Bienvenidos a Nuestra fundación',
     description: [
       `¡Descubre la magia de la Fundación Pan Para Un Abuelo! Somos mucho más que una organización sin ánimo de lucro en Medellín. 

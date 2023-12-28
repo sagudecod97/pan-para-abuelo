@@ -1,0 +1,48 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.service-carousel {
+	padding: size(60px) 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@include respond-to($media-lg) {
+		font-size: (34px);
+		padding: size(110px) size(20px) size(150px) size(20px);
+	}
+
+	&__title {
+		text-align: center;
+		text-transform: capitalize;
+		padding: 0 size(20px) size(20px) size(20px);
+		font-family: $roboto-bold;
+
+		@include respond-to($media-sm) {
+			font-size: (28px);
+		}
+
+		@include respond-to($media-lg) {
+			font-size: (34px);
+		}
+	}
+
+	&__description {
+		text-align: center;
+		max-width: size(800px);
+		padding: 0 size(20px);
+
+		@include respond-to($media-sm) {
+			font-size: (18px);
+		}
+
+		@include respond-to($media-lg) {
+			padding: 0;
+		}
+	}
+
+	&__images {
+		width: 100%;
+		max-width: size(1100px);
+	}
+}
