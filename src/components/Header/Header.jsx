@@ -1,10 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
-import './Header.scss';
+import React, { useState, useRef, useEffect } from "react";
+import "./Header.scss";
 
-import IconComponent from '../IconComponent/IconComponent';
-import Link from '../Link/Link';
+import { Outlet, Link } from "react-router-dom";
 
-import PanParaAbueloLogo from '../../assets/images/pan-para-abuelo-logo.png';
+import IconComponent from "../IconComponent/IconComponent";
+// import Link from "../Link/Link";
+
+import PanParaAbueloLogo from "../../assets/images/pan-para-abuelo-logo.png";
 
 const Header = () => {
   const [openNavitation, setOpenNavigation] = useState(false);
@@ -21,229 +23,229 @@ const Header = () => {
   const navigationContainer = useRef(null);
 
   const openNavigationHandler = () => {
-    setOpenNavigation(!openNavitation)
+    setOpenNavigation(!openNavitation);
   };
 
   const handlerButtonNavFocus = () => {
     setOpenNavigation(true);
-  }
+  };
 
-  const shouldBeHidden = (!openNavitation && !isDesktop);
+  const shouldBeHidden = !openNavitation && !isDesktop;
 
   const handleKeyDownButtonNav = (event) => {
     const { key, code } = event;
 
-    if (key === 'Tab') {
+    if (key === "Tab") {
       setOpenNavigation(false);
-    } else if (key === 'Enter' || code === 'Space' || key === 'ArrowDown') {
+    } else if (key === "Enter" || code === "Space" || key === "ArrowDown") {
       firstLinkNode.focus();
       setCurrentNavFocus(0);
-    } else if (key === 'ArrowUp') {
+    } else if (key === "ArrowUp") {
       lastLinkNode.focus();
       setCurrentNavFocus(navigationLinks.length - 1);
     }
-  }
+  };
 
   const handleKeyDownNav = (event) => {
     const { key, shiftKey, code } = event;
-    const navigationLinks = [...navigationContainer.current.querySelectorAll('a')];
+    const navigationLinks = [
+      ...navigationContainer.current.querySelectorAll("a"),
+    ];
 
-    if (code === 'Space') {
+    if (code === "Space") {
       return navigationLinks[currentNavFocus].click();
     }
 
-    if (key === 'Tab' && shiftKey) {
+    if (key === "Tab" && shiftKey) {
       setOpenNavigation(false);
       return buttonMenu.current.click();
     }
 
-    if (key === 'Tab') {
+    if (key === "Tab") {
       setOpenNavigation(false);
     }
 
-    if (key === 'ArrowDown' && currentNavFocus === navigationLinks.length - 1) {
-      firstLinkNode.focus()
+    if (key === "ArrowDown" && currentNavFocus === navigationLinks.length - 1) {
+      firstLinkNode.focus();
       setCurrentNavFocus(0);
-    } else if (key === 'ArrowDown') {
+    } else if (key === "ArrowDown") {
       navigationLinks[currentNavFocus + 1].focus();
-      setCurrentNavFocus(currentNavFocus + 1)
-    } else if (key === 'ArrowUp' && currentNavFocus === 0) {
-      lastLinkNode.focus()
+      setCurrentNavFocus(currentNavFocus + 1);
+    } else if (key === "ArrowUp" && currentNavFocus === 0) {
+      lastLinkNode.focus();
       setCurrentNavFocus(navigationLinks.length - 1);
-    } else if (key === 'ArrowUp') {
+    } else if (key === "ArrowUp") {
       navigationLinks[currentNavFocus - 1].focus();
-      setCurrentNavFocus(currentNavFocus - 1)
+      setCurrentNavFocus(currentNavFocus - 1);
     }
-  }
+  };
 
   useEffect(() => {
     setFirstLinkNode(firstNavItem.current.children[0]);
     setLastLinkNode(lastNavItem.current.children[0]);
-    setNavigationLinks([...navigationContainer.current.querySelectorAll('a')]);
-  }, [])
+    setNavigationLinks([...navigationContainer.current.querySelectorAll("a")]);
+  }, []);
 
   useEffect(() => {
     if (windowWidth >= 1199) {
-      setIsDesktop(true)
+      setIsDesktop(true);
     } else {
       setIsDesktop(false);
     }
-
 
     const updateWindowWidth = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', updateWindowWidth);
+    window.addEventListener("resize", updateWindowWidth);
 
     return () => {
-      window.removeEventListener('resize', updateWindowWidth);
+      window.removeEventListener("resize", updateWindowWidth);
     };
   }, [windowWidth]);
 
   return (
-    <header
-      className='header'
-    >
-      <a
-        className='header__logo'
-        href='/'
-      >
-        <img
-          className='header__logo-img'
-          alt="Fundación Pan para un Abuelo"
-          src={PanParaAbueloLogo}
-        />
-      </a>
+    <>
+      <header className="header">
+        <Link className="header__logo" to="/">
+          <img
+            className="header__logo-img"
+            alt="Fundación Pan para un Abuelo"
+            src={PanParaAbueloLogo}
+          />
+        </Link>
 
-      <button
-        onClick={openNavigationHandler}
-        onFocus={handlerButtonNavFocus}
-        className='header__menu'
-        aria-label='Menú de navegación'
-        aria-haspopup='menu'
-        aria-expanded={openNavitation}
-        aria-controls='navigation-list'
-        onKeyDown={handleKeyDownButtonNav}
-        type='button'
-        ref={buttonMenu}
-      >
-        <IconComponent
-          className='header__menu-icon'
-          icon='menu'
-        />
-      </button>
-
-      <nav
-        className={`
-        navigation
-        ${shouldBeHidden ? '--hidden' : ''}
-        `}
-        aria-hidden={shouldBeHidden}
-        onKeyDown={handleKeyDownNav}
-      >
-        <ul
-          className='navigation__list'
-          role='menu'
-          id='navigation-list'
-          ref={navigationContainer}
+        <button
+          onClick={openNavigationHandler}
+          onFocus={handlerButtonNavFocus}
+          className="header__menu"
+          aria-label="Menú de navegación"
+          aria-haspopup="menu"
+          aria-expanded={openNavitation}
+          aria-controls="navigation-list"
+          onKeyDown={handleKeyDownButtonNav}
+          type="button"
+          ref={buttonMenu}
         >
-          <li
-            className={`
+          <IconComponent className="header__menu-icon" icon="menu" />
+        </button>
+
+        <nav
+          className={`
+        navigation
+        ${shouldBeHidden ? "--hidden" : ""}
+        `}
+          aria-hidden={shouldBeHidden}
+          onKeyDown={handleKeyDownNav}
+        >
+          <ul
+            className="navigation__list"
+            role="menu"
+            id="navigation-list"
+            ref={navigationContainer}
+          >
+            <li
+              className={`
             navigation__list-item
             --animation
             `}
-            role='menuitem'
-            ref={firstNavItem}
-          >
-            <Link
-              className='navigation__link'
-              href="/"
+              role="menuitem"
+              ref={firstNavItem}
             >
-              Inicio
-            </Link>
-          </li>
+              <Link className="navigation__link" to="/">
+                Inicio
+              </Link>
+            </li>
 
-          <li
-            className={`
+            <li
+              className={`
             navigation__list-item
             --animation
             `}
-            role='menuitem'
-          >
-            <Link
-              className='navigation__link'
-              href="/"
+              role="menuitem"
             >
-              Quienes Somos
-            </Link>
-          </li>
+              <Link className="navigation__link" to="/about-us">
+                Quienes Somos
+              </Link>
+            </li>
 
-          <li
-            className={`
+            <li
+              className={`
             navigation__list-item
             --animation
             `}
-            role='menuitem'
-          >
-            <Link
-              className='navigation__link'
-              href="/"
+              role="menuitem"
             >
-              Contactenos
-            </Link>
-          </li>
+              <Link className="navigation__link" to="/services">
+                Servicios
+              </Link>
+            </li>
 
-
-          <li
-            className={`
+            <li
+              className={`
             navigation__list-item
             --animation
             `}
-            role='menuitem'
-          >
-            <Link
-              className='navigation__link'
-              href="/"
+              role="menuitem"
             >
-              Eventos
-            </Link>
-          </li>
+              <Link className="navigation__link" to="/">
+                Eventos
+              </Link>
+            </li>
 
-
-          <li
-            className={`
+            <li
+              className={`
             navigation__list-item
             --animation
             `}
-            role='menuitem'
-          >
-            <Link
-              className='navigation__link'
-              href="/"
+              role="menuitem"
             >
-              Ropero
-            </Link>
-          </li>
+              <Link className="navigation__link" to="/">
+                Mundo Equino
+              </Link>
+            </li>
 
-          <li
-            className={`
+            <li
+              className={`
+            navigation__list-item
+            --animation
+            `}
+              role="menuitem"
+            >
+              <Link className="navigation__link" to="/">
+                Ropero
+              </Link>
+            </li>
+
+            <li
+              className={`
+            navigation__list-item
+            --animation
+            `}
+              role="menuitem"
+            >
+              <Link className="navigation__link" to="/">
+                Contactenos
+              </Link>
+            </li>
+
+            <li
+              className={`
             navigation__list-item
             --donate
             `}
-            role='menuitem'
-            ref={lastNavItem}
-          >
-            <Link
-              className='navigation__link'
-              href="/"
+              role="menuitem"
+              ref={lastNavItem}
             >
-              Donar
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+              <Link className="navigation__link" to="/">
+                Donar
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <Outlet />
+    </>
   );
 };
 
