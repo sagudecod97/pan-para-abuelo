@@ -1,18 +1,16 @@
-import React from 'react';
-import './HomePage.scss';
+import React from "react";
+import "./HomePage.scss";
 
-import ImageSectionTemplate from '../../templates/ImageSectionTemplate/ImageSectionTemplate';
-import PageIntroduction from '../../components/PageIntroduction/PageIntroduction';
-import OfferedServices from '../../components/OfferedServices/OfferedServices';
-import HowToHelp from '../../components/HowToHelp/HowToHelp';
+import ImageSectionTemplate from "../../templates/ImageSectionTemplate/ImageSectionTemplate";
+import PageIntroduction from "../../components/PageIntroduction/PageIntroduction";
+import OfferedServices from "../../components/OfferedServices/OfferedServices";
+import HowToHelp from "../../components/HowToHelp/HowToHelp";
 
-import homePageData from '../../data/homePageData';
+import homePageData from "../../data/homePageData";
 
 const HomePage = () => {
   const sectionsArray = [
-    <PageIntroduction
-      homeDescriptionData={homePageData.homeIntroduction}
-      />,
+    <PageIntroduction pageIntroductionData={homePageData.homeIntroduction} />,
     <OfferedServices
       title={homePageData.homeOfferedServices.title}
       description={homePageData.homeOfferedServices.description}
@@ -22,14 +20,14 @@ const HomePage = () => {
       title={homePageData.homeHowToHelp.title}
       description={homePageData.homeHowToHelp.description}
       cardsData={homePageData.homeHowToHelp.cardsData}
-    />
+    />,
   ];
 
   return (
     <ImageSectionTemplate
       imagesArray={homePageData.homeImagesComponents}
       sections={sectionsArray}
-    /> 
+    />
   );
 };
 
